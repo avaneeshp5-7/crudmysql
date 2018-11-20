@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-area">
+        <form role="form" name="addfrm" #form1='ngForm'>
+          <br style="clear:both">
+          <h2 style="margin-bottom: 25px; text-align: center;"><i>Enter People Details</i></h2>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" #pname="ngModel" name="name" [(ngModel)]="name"
+              placeholder="Name" required>
+              <span *ngIf="pname.errors && pname.errors.required" style="font-size:12px;color:red;position: fixed">{{msg1}}</span>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" id="age" #page="ngModel" name="age" [(ngModel)]="age" placeholder="Age"
+              required>
+              <span *ngIf="page.errors && page.errors.required" style="font-size:12px;color:red;position: fixed">{{msg2}}</span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="mobile" #pmobile="ngModel" name="mobile" [(ngModel)]="mobile"
+              placeholder="Mobile Number" required>
+              <span *ngIf="pmobile.errors && pmobile.errors.required" style="font-size:12px;color:red;position: fixed">{{msg3}}</span>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="radio" id="male" name="gender" #pfemale="ngModel" value="Male" [(ngModel)]="gender" required> Male </label>
+            <label> &nbsp;&nbsp;
+              <input type="radio" id="female" name="gender" #pfemale="ngModel" value="Female" [(ngModel)]="gender" required> Female </label><br>
+              <span *ngIf="pfemale.errors && pfemale.errors.required" style="font-size:12px;color:red;position: fixed">{{msg4}}</span>
+          </div>
+         <br>
+          <button type="button" class="btn btn-primary pull-right" (click)="funAdd(form1)">Add People</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

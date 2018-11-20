@@ -1,0 +1,53 @@
+<br><br>
+<div class="container">
+    <h2 style="margin-bottom: 25px; text-align: center;"><i>Update Details</i></h2>
+  <div class="row text-center">
+    <div class="col-md-12">
+      <table class="table table-striped table-condensed" style="border:1px solid brown;">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mobile No</th>
+            <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of getrec">
+            <td *ngIf="item.peopleid!=gloid;else temp">{{item.peopleid}}</td>
+            <td *ngIf="item.peopleid!=gloid">{{item.Name}}</td>
+            <td *ngIf="item.peopleid!=gloid">{{item.Age}}</td>
+            <td *ngIf="item.peopleid!=gloid">{{item.Gender}}</td>
+            <td *ngIf="item.peopleid!=gloid">{{item.MobileNo}}</td>
+            <td *ngIf="item.peopleid!=gloid">
+              <input type="button" value="Edit" class="btn btn-warning" style="width:90px;" (click)="funUpdate(item)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<form name="ffr11">
+  <ng-template #temp>
+    <td>{{gloid}}</td>
+    <td>
+      <input type="text" class="form-control" [(ngModel)]="name" name="name" required>
+    </td>
+    <td>
+      <input type="text" class="form-control" [(ngModel)]="age" name="age" required>
+    </td>
+    <td>
+      <input type="text" class="form-control" [(ngModel)]="gender" name="gender" required>
+    </td>
+    <td>
+      <input type="text" class="form-control" [(ngModel)]="mobile" name="mobile" required>
+    </td>
+    <td>
+      <input type="button" value="Save" class="btn btn-success" (click)="funSave()">&nbsp;
+      <input type="button" value="Cancel" class="btn btn-primary" (click)="gloid=0">
+    </td>
+  </ng-template>
+</form>
